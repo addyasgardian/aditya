@@ -2,6 +2,7 @@ import express from "express";
 import { Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -21,6 +22,13 @@ app.use((res: Response) => {
   return res.send(`<h1>Welcome To express </h1>`);
 });
 
-app.listen(Port, () => {
-  console.log("server is running " + Port);
-});
+mongoose
+  .connect(process.env.MONGO_URI!)
+  .then(() => {
+    app.listen(Port, () => {
+      console.log("App Running Connected " + Port);
+    });
+  })
+  .catch((e) => {
+    console.log(e);
+  });
