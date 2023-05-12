@@ -84,7 +84,7 @@ function App() {
         <>
           <h1>
             The Contreact Signed Between{" "}
-            {`${contract.ContractDeatils.Seller} and ${contract.ContractDeatils.Buyer} on ${contract.date}`}
+            {`${contract!.ContractDeatils.Seller} and ${contract!.ContractDeatils.Buyer} on ${contract!.date}`}
           </h1>
         </>
       )}
