@@ -18,8 +18,8 @@ app.use(cors());
 const Port = process.env.PORT || 5000;
 app.use("/form", FormRoutes);
 
-app.use((res: Response) => {
-  return res.send(`<h1>Welcome To express </h1>`);
+app.use((req, res: Response, next) => {
+  res.send("<h1>Welcome to express</h1>");
 });
 
 mongoose
